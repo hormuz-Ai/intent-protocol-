@@ -1,0 +1,49 @@
+{
+      "$schema": "http://json-schema.org/draft-07/schema#",
+        "$id": "https://intentprotocol.org/schemas/intent-v0.1.json",
+          "title": "Intent",
+            "description": "A universal declaration of desired outcome",
+              "type": "object",
+                "required": ["intent_id", "action", "target", "params"],
+                  "properties": {
+                      "intent_id": {
+                            "type": "string",
+                                  "format": "uuid",
+                                        "description": "Unique identifier for this intent"
+                                            },
+                                                "action": {
+                                                      "type": "string",
+                                                            "enum": ["book", "buy", "find", "compare", "schedule", "send", "request"],
+                                                                  "description": "The primary action desired"
+                                                                      },
+                                                                          "target": {
+                                                                                "type": "string",
+                                                                                      "description": "The object or service the action applies to (e.g., 'flight', 'hotel', 'crypto_swap')"
+                                                                                          },
+                                                                                              "params": {
+                                                                                                    "type": "object",
+                                                                                                          "description": "Specific parameters for the intent"
+                                                                                                              },
+                                                                                                                  "constraints": {
+                                                                                                                        "type": "object",
+                                                                                                                              "properties": {
+                                                                                                                                      "max_price": { "type": "number" },
+                                                                                                                                              "currency": { "type": "string", "default": "USD" },
+                                                                                                                                                      "deadline": { "type": "string", "format": "date-time" },
+                                                                                                                                                              "preferred_providers": { "type": "array", "items": { "type": "string" } }
+                                                                                                                                                                    }
+                                                                                                                                                                        },
+                                                                                                                                                                            "fulfillment_conditions": {
+                                                                                                                                                                                  "type": "object",
+                                                                                                                                                                                        "properties": {
+                                                                                                                                                                                                "proof_required": { "type": "string", "enum": ["none", "receipt", "cryptographic", "zk_proof"] },
+                                                                                                                                                                                                        "timeout_seconds": { "type": "integer", "default": 3600 }
+                                                                                                                                                                                                              }
+                                                                                                                                                                                                                  },
+                                                                                                                                                                                                                      "signature": {
+                                                                                                                                                                                                                            "type": "string",
+                                                                                                                                                                                                                                  "description": "Ed25519 signature of the intent by the user's secure enclave"
+                                                                                                                                                                                                                                      }
+                                                                                                                                                                                                                                        }
+                                                                                                                                                                                                                                        }
+}
