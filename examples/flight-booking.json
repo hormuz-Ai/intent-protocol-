@@ -1,0 +1,20 @@
+{
+  "intent_id": "550e8400-e29b-41d4-a716-446655440000",
+  "action": "book",
+  "target": "flight",
+  "params": {
+    "origin": "JFK",
+    "destination": "LAX",
+    "departure_date": "2026-05-20",
+    "passengers": 1
+  },
+  "constraints": {
+    "max_price": 350,
+    "currency": "USD",
+    "preferred_providers": ["Delta", "JetBlue"]
+  },
+  "fulfillment_conditions": {
+    "proof_required": "receipt",
+    "timeout_seconds": 3600
+  }
+}
