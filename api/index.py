@@ -4,7 +4,7 @@ from web3 import Web3
 
 app = Flask(__name__)
 RPC_URL = "https://eth-sepolia.g.alchemy.com/v2/AyzTGpLHqNpD-3gnA_VEN"
-CONTRACT_ADDRESS = "0xF7864313A78328aD10bBb309a9A01aeaBC1C7f97"
+CONTRACT_ADDRESS = "0xf77fA787dD3eDC407455ad2Be3dCddFd9857CD25"
 PROTOCOL_FEE = 0.001
 
 ABI = [{"inputs":[],"name":"getAllActiveSolvers","outputs":[{"internalType":"address[]","name":"","type":"address[]"},{"components":[{"internalType":"string","name":"endpoint","type":"string"},{"internalType":"string[]","name":"capabilities","type":"string[]"},{"internalType":"uint256","name":"reputation","type":"uint256"},{"internalType":"bool","name":"active","type":"bool"}],"internalType":"struct SolverRegistry.Solver[]","name":"","type":"tuple[]"}],"stateMutability":"view","type":"function"}]
