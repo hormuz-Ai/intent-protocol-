@@ -342,4 +342,22 @@ Tell your AI agent what you want. It speaks ICL. The network figures out the res
 - **Litepaper:** https://github.com/Hormuz-Ai/intent-protocol/blob/main/LITEPAPER.md
 
 For investor inquiries: `investors@intentprotocol.org`  
+
+## 10. Community & Contact
+
+- **GitHub:** https://github.com/Hormuz-Ai/intent-protocol
+- **Discord:** https://discord.gg/3v8Ft5Y8f
+- **Twitter/X:** [@intent_net](https://x.com/intent_net)
+- **Litepaper:** https://github.com/Hormuz-Ai/intent-protocol/blob/main/LITEPAPER.md
+
+For investor inquiries: `investors@intentprotocol.org`  
+
+## 10. Community & Contact
+
+- **GitHub:** https://github.com/Hormuz-Ai/intent-protocol
+- **Discord:** https://discord.gg/3v8Ft5Y8f
+- **Twitter/X:** [@intent_net](https://x.com/intent_net)
+- **Litepaper:** https://github.com/Hormuz-Ai/intent-protocol/blob/main/LITEPAPER.md
+
+For investor inquiries: `investors@intentprotocol.org`
 For developer support: join the Discord and ask in `#🛠-solvers`.
