@@ -1,5 +1,6 @@
 import os
 import requests
+from datetime import date, timedelta
 from telegram import Update
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
 
@@ -11,8 +12,8 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "🌐 Intent Net is live.\n\n"
         "Tell me what you want. Examples:\n"
         "- Book flight to LAX tomorrow under $400\n"
-        "- Find best hotel in Paris under $200\n"
-        "- Compare crypto swap rates for ETH to USDC"
+        "- Find best hotel in Paris under $200 (coming soon)\n"
+        "- Compare crypto swap rates for ETH to USDC (coming soon)"
     )
 
 def parse_intent(text: str) -> dict:
@@ -39,7 +40,7 @@ def parse_intent(text: str) -> dict:
     else:
         target = "flight"
     
-    # Extract locations (simple regex-like parsing)
+    # Extract locations
     words = text.split()
     origin = "JFK"
     destination = "LAX"
@@ -66,12 +67,14 @@ def parse_intent(text: str) -> dict:
             except:
                 pass
     
-    # Extract date
-    date = "2026-04-24"
+    # Extract date (FIXED: correctly handle relative dates)
+    today = date.today()
     if "tomorrow" in text:
-        date = "2026-04-24"
+        parsed_date = (today + timedelta(days=1)).strftime("%Y-%m-%d")
     elif "today" in text:
-        date = "2026-04-23"
+        parsed_date = today.strftime("%Y-%m-%d")
+    else:
+        parsed_date = "2026-04-25"
     
     return {
         "action": action,
@@ -79,7 +82,7 @@ def parse_intent(text: str) -> dict:
         "params": {
             "origin": origin,
             "destination": destination,
-            "departure_date": date
+            "departure_date": parsed_date
         },
         "constraints": {"max_price": max_price}
     }
@@ -90,7 +93,20 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # Parse the intent
     intent = parse_intent(user_text)
     
-    # Send to gateway
+    # If the intent is NOT a flight, show a "coming soon" message
+    if intent["target"] != "flight":
+        category = intent["target"].replace("_", " ")
+        await update.message.reply_text(
+            f"🏗️ {category.title()} Solver — Coming Soon!\n\n"
+            f"We're recruiting the first 10 solvers to cover {category} bookings, "
+            f"crypto swaps, hotel stays, and more.\n\n"
+            f"💰 Early solver developers earn INTP token allocations.\n"
+            f"🛠️ Build one yourself: https://github.com/Hormuz-Ai/intent-protocol-\n\n"
+            f"Right now, try: 'Book a flight to LAX tomorrow under $400'"
+        )
+        return
+    
+    # Send flight intents to gateway
     try:
         response = requests.post(GATEWAY_URL, json=intent, timeout=15)
         if response.status_code == 200:
