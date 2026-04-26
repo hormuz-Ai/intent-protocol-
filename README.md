@@ -56,3 +56,5 @@ See the [Solver SDK documentation](sdk/README.md) for details.
 ---
 
 **INTP is not an app. It is the TCP/IP layer for the agentic economy.**
+
+**Full developer guide:** [DEVELOPER_GUIDE.md](DEVELOPER_GUIDE.md)
