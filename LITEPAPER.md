@@ -130,3 +130,6 @@ INTP currently has six live solvers on Ethereum Sepolia testnet:
 | Hotel | Travel | https://hotel-solver.vercel.app/a2a |
 
 Any developer can build a solver in under 5 minutes using `npx create-intent-solver`.
+
+
+The INTP token smart contract is open‑source: [INTPToken.sol](https://github.com/Hormuz-Ai/intent-protocol-/blob/main/contracts/src/INTPToken.sol)
