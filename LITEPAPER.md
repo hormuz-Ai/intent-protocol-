@@ -113,7 +113,7 @@ Build a Solver, Run a Gateway, Buy and Stake INTP, or Use the Protocol.
 - Twitter/X: @intent_net
 - Litepaper: https://github.com/Hormuz-Ai/intent-protocol-/blob/main/LITEPAPER.md
 
-For investor inquiries: investors@intentprotocol.org
+For investor inquiries: hormuzai.centurion@gmail.com
 For developer support: join the Discord and ask in #🛠-solvers.
 
 ## 11. Solver Ecosystem
