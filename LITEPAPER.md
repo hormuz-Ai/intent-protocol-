@@ -115,3 +115,18 @@ Build a Solver, Run a Gateway, Buy and Stake INTP, or Use the Protocol.
 
 For investor inquiries: investors@intentprotocol.org
 For developer support: join the Discord and ask in #🛠-solvers.
+
+## 11. Solver Ecosystem
+
+INTP currently has six live solvers on Ethereum Sepolia testnet:
+
+| Solver | Category | Endpoint |
+|--------|----------|----------|
+| Aggregator | Meta‑routing | https://aggregator-solver.vercel.app/a2a |
+| Flight | Travel | https://solver-deploy.vercel.app/a2a |
+| DeFi Swap | DeFi | https://defi-swap-solver.vercel.app/a2a |
+| Yield | DeFi | https://yield-solver.vercel.app/a2a |
+| Compute | DePIN | https://compute-solver.vercel.app/a2a |
+| Hotel | Travel | https://hotel-solver.vercel.app/a2a |
+
+Any developer can build a solver in under 5 minutes using `npx create-intent-solver`.
