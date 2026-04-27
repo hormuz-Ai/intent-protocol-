@@ -1,0 +1,9 @@
+{
+  "name": "saviours-agent",
+  "version": "1.0.0",
+  "description": "AI Chief of Staff for INTP Labs",
+  "main": "index.js",
+  "dependencies": {
+    "openclaw": "^2026.4.24"
+  }
+}
