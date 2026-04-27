@@ -4,6 +4,11 @@
   "description": "AI Chief of Staff for INTP Labs",
   "main": "index.js",
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.91.1",
+    "node-cron": "^4.2.1",
+    "node-telegram-bot-api": "^0.67.0",
+    "nodemailer": "^8.0.7",
+    "openai": "^6.34.0",
     "openclaw": "^2026.4.24"
   }
 }
