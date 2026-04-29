@@ -31,7 +31,7 @@ The ICL payload reaches an INTP Gateway — a lightweight HTTP endpoint that rea
 
 ### 3.3 SolverRegistry (On‑Chain Discovery)
 
-The SolverRegistry is an open, permissionless contract deployed on Ethereum Sepolia testnet at 0xf77fA787dD3eDC407455ad2Be3dCddFd9857CD25. Any developer can register a solver by calling register(endpoint, capabilities) and paying gas. The registry returns the endpoint, capabilities, reputation score, and active status of every solver. This is the decentralized phone book of the agent economy.
+The SolverRegistry is an open, permissionless contract deployed on Ethereum Sepolia testnet at fA787dD3eDC407455ad2Be3dCddFd9857CD25. Any developer can register a solver by calling register(endpoint, capabilities) and paying gas. The registry returns the endpoint, capabilities, reputation score, and active status of every solver. This is the decentralized phone book of the agent economy.
 
 ### 3.4 Aggregator & Solver Selection
 
