@@ -10,7 +10,7 @@ def generate_proof():
                     proof_request = await ReclaimProofRequest.init(
                                 app_id="0x8cB22C812ba0EDfFd0a826ba4dFA18Ae940c6040",
                                             app_secret="0xf681ec70c2f069d8912270750fc712904d7ebd68e4daad60e237700016d01281",
-                                                        provider_id="YOUR_PROVIDER_ID"  # ← replace with actual provider ID from dev.reclaimprotocol.org
+                                                        provider_id="0x8cB22C812ba0EDfFd0a826ba4dFA18Ae940c6040"  # ← replace with actual provider ID from dev.reclaimprotocol.org
                                                                 )
                                                                         request_url = await proof_request.get_request_url()
                                                                                 return request_url
