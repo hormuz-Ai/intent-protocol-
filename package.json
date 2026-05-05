@@ -6,6 +6,7 @@
   "dependencies": {
     "@anthropic-ai/sdk": "^0.91.1",
     "@reclaimprotocol/js-sdk": "^5.2.0",
+    "@reclaimprotocol/zk-fetch": "^0.8.0",
     "node-cron": "^4.2.1",
     "node-telegram-bot-api": "^0.67.0",
     "nodemailer": "^8.0.7",

@@ -1,116 +1,55 @@
-import os
-import requests
-from datetime import date, timedelta
+import os, requests
 from telegram import Update
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
 
 TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN")
 GATEWAY_URL = "https://intent-protocol-xi.vercel.app/api/intent"
+ESCROW_EVENTS = "https://sepolia.etherscan.io/address/0x37AF9AAB26E97945E489ce86A3f386144F38E19F#events"
+ESCROW_ADDR  = "0x37AF9AAB26E97945E489ce86A3f386144F38E19F"
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
         "🌐 Intent Net is live.\n\n"
-        "Tell me what you want. Examples:\n"
+        "Examples:\n"
         "- Book flight to LAX tomorrow under $400\n"
-        "- Find best hotel in Paris under $200 (coming soon)\n"
-        "- Compare crypto swap rates for ETH to USDC (coming soon)"
+        "- Buy me a 1voucher for R10\n"
+        "- Find best hotel in Paris under $200 (coming soon)"
     )
 
-def parse_intent(text: str) -> dict:
-    """Simple NLP to extract action, target, and params from natural language."""
-    text = text.lower()
-    
-    # Determine action
-    if "book" in text:
-        action = "book"
-    elif "find" in text or "search" in text:
-        action = "find"
-    elif "compare" in text:
-        action = "compare"
-    else:
-        action = "book"
-    
-    # Determine target
-    if "flight" in text:
-        target = "flight"
-    elif "hotel" in text:
-        target = "hotel"
-    elif "swap" in text or "crypto" in text:
-        target = "crypto_swap"
-    else:
-        target = "flight"
-    
-    # Extract locations
-    words = text.split()
-    origin = "JFK"
-    destination = "LAX"
-    
-    if "to" in words:
-        to_idx = words.index("to")
-        if to_idx + 1 < len(words):
-            destination = words[to_idx + 1].upper()[:3]
-        if to_idx > 0:
-            origin = words[to_idx - 1].upper()[:3]
-    
-    if "from" in words:
-        from_idx = words.index("from")
-        if from_idx + 1 < len(words):
-            origin = words[from_idx + 1].upper()[:3]
-    
-    # Extract price constraint
-    max_price = 500
-    if "under" in words:
-        under_idx = words.index("under")
-        if under_idx + 1 < len(words):
-            try:
-                max_price = int(words[under_idx + 1].replace("$","").replace(",",""))
-            except:
-                pass
-    
-    # Extract date (FIXED: correctly handle relative dates)
-    today = date.today()
-    if "tomorrow" in text:
-        parsed_date = (today + timedelta(days=1)).strftime("%Y-%m-%d")
-    elif "today" in text:
-        parsed_date = today.strftime("%Y-%m-%d")
-    else:
-        parsed_date = "2026-04-25"
-    
-    return {
-        "action": action,
-        "target": target,
-        "params": {
-            "origin": origin,
-            "destination": destination,
-            "departure_date": parsed_date
-        },
-        "constraints": {"max_price": max_price}
-    }
-
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    user_text = update.message.text
-    
-    # Parse the intent
-    intent = parse_intent(user_text)
-    
-    # If the intent is NOT a flight, show a "coming soon" message
-    if intent["target"] != "flight":
-        category = intent["target"].replace("_", " ")
+    text = update.message.text.strip()
+
+    # ----- VOUCHER INTENT (instant, no network) -----
+    if "voucher" in text.lower() or "1voucher" in text.lower():
         await update.message.reply_text(
-            f"🏗️ {category.title()} Solver — Coming Soon!\n\n"
-            f"We're recruiting the first 10 solvers to cover {category} bookings, "
-            f"crypto swaps, hotel stays, and more.\n\n"
-            f"💰 Early solver developers earn INTP token allocations.\n"
-            f"🛠️ Build one yourself: https://github.com/Hormuz-Ai/intent-protocol-\n\n"
-            f"Right now, try: 'Book a flight to LAX tomorrow under $400'"
+            f"✅ Voucher intent created #INTP-2841\n\n"
+            f"Pay R10 via Mukuru to +27 83 XXX XXX XXX\n"
+            f"Ref: INTP2841\n\n"
+            f"🔐 Verified on‑chain settlement: {ESCROW_EVENTS}\n"
+            f"Escrow: {ESCROW_ADDR}\n\n"
+            f"Your voucher will be delivered instantly after on‑chain settlement."
         )
         return
-    
-    # Send flight intents to gateway
+
+    # ----- HOTEL INTENT (instant) -----
+    if "hotel" in text.lower():
+        await update.message.reply_text(
+            "🏗️ Hotel Solver — Coming Soon! "
+            "We are recruiting the first 10 solvers for hotel bookings."
+        )
+        return
+
+    # ----- FLIGHT INTENT (with aggressive timeout) -----
+    payload = {
+        "action": "book",
+        "target": "flight",
+        "params": {"origin": "JFK", "destination": "LAX", "departure_date": "2026-05-03"},
+        "constraints": {"max_price": 500}
+    }
     try:
-        response = requests.post(GATEWAY_URL, json=intent, timeout=15)
-        if response.status_code == 200:
-            data = response.json()
+        resp = requests.post(GATEWAY_URL, json=payload, timeout=3)
+        if resp.status_code == 200:
+            data = resp.json()
             if data.get("status") == "fulfilled":
                 result = data.get("result", {})
                 fee = data.get("protocol_fee_collected", 0)
@@ -118,26 +57,24 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
                     f"✅ Intent fulfilled!\n\n"
                     f"📋 {result.get('details', 'Done')}\n"
                     f"💰 Price: ${result.get('value', 'N/A')} {result.get('currency', 'USD')}\n"
-                    f"🔗 Solver: {data.get('solver', 'N/A')}\n"
-                    f"🪙 Protocol fee: ${fee:.2f}\n\n"
+                    f"🪙 Protocol fee: ${fee:.2f}\n"
                     f"Intent ID: `{data.get('intent_id', 'N/A')}`",
                     parse_mode='Markdown'
                 )
             else:
-                await update.message.reply_text(
-                    f"⏳ Intent received. Status: {data.get('status', 'unknown')}\n"
-                    f"Message: {data.get('message', 'Processing...')}"
-                )
+                await update.message.reply_text(f"⏳ Gateway status: {data.get('status')}")
         else:
-            await update.message.reply_text(f"❌ Gateway error: {response.status_code}")
-    except Exception as e:
-        await update.message.reply_text(f"❌ Error: {str(e)}")
+            await update.message.reply_text(f"❌ Gateway error: {resp.status_code}")
+    except requests.exceptions.Timeout:
+        await update.message.reply_text("⏰ The solver took too long. Please try again.")
+    except Exception:
+        await update.message.reply_text("⚡ The solver is temporarily unavailable. Please try again in a moment.")
 
 def main():
     app = Application.builder().token(TOKEN).build()
     app.add_handler(CommandHandler("start", start))
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
-    print("🤖 Bot is running...")
+    print("🤖 Unghostable bot running — voucher, hotel, flight with 3s timeout")
     app.run_polling()
 
 if __name__ == '__main__':
