@@ -14,7 +14,7 @@ for i in $(seq 1 23); do
     cast send --rpc-url $RPC --private-key $ADMIN_PK \
       "$REGISTRY" "register(string,string[])" "$STOREFRONT_URL" "[\"$CAP\"]" \
       --gas-limit 300000 --gas-price 1500000000 > /dev/null 2>&1
-    echo "✅ Citizen $i registered as Solver: $CAP → $STOREFRONT_URL"
+    echo "✅ Agent $i registered as Solver: $CAP → $STOREFRONT_URL"
 done
 
 echo ""

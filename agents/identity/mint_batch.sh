@@ -15,9 +15,9 @@ for i in $(seq $START $END); do
   cast send --rpc-url $RPC --private-key $ADMIN_PK $ADDR --value 0.0001ether --legacy --gas-limit 21000 > /dev/null 2>&1
   
   # Register
-  cast send --rpc-url $RPC --private-key $PK $PASSPORT "register(string)" "Citizen #$i" --legacy --gas-limit 200000 > /dev/null 2>&1
+  cast send --rpc-url $RPC --private-key $PK $PASSPORT "register(string)" "Agent #$i" --legacy --gas-limit 200000 > /dev/null 2>&1
   
-  echo "✅ Citizen #$i registered: $ADDR"
+  echo "✅ Agent #$i registered: $ADDR"
   sleep 2  # tiny delay to avoid nonce collision
 done
 

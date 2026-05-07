@@ -1,11 +1,11 @@
 #!/bin/bash
 # ═══════════════════════════════════════════════════════
-#  INTP EARTH — GREEN BUTTON LAUNCH
+#  INTP Protocol — GREEN BUTTON LAUNCH
 #  Executed: May 5, 2026
 #  Architect: SavioursCench⁰⁵
 # ═══════════════════════════════════════════════════════
 
-echo "🌍 INTP Earth — Launch Sequence Initiated"
+echo "🌍 INTP Protocol — Launch Sequence Initiated"
 echo "══════════════════════════════════════════"
 
 # 1. Activate the Passport‑to‑Solver Bridge
@@ -36,10 +36,10 @@ fi
 # 5. Verify on‑chain components
 echo "🔍 [5/6] Verifying on‑chain components..."
 PASSPORT_COUNT=$(cast call 0x16de8830183eBC2705EAeB01142d0e057a892593 "agentCount()(uint256)" --rpc-url https://eth-sepolia.g.alchemy.com/v2/AyzTGpLHqNpD-3gnA_VEN 2>/dev/null || echo "1 (live)")
-echo "   Passport citizens: $PASSPORT_COUNT"
+echo "   Passport agents: $PASSPORT_COUNT"
 
 # 6. Open the Gates
-echo "🌍 [6/6] GATES OPEN — The INTP Earth is live."
+echo "🌍 [6/6] GATES OPEN — The INTP Protocol is live."
 echo ""
 echo "   🧬 Passport Office: 0x16de8830183eBC2705EAeB01142d0e057a892593"
 echo "   📇 Solver Directory: 0xf77fA787dD3eDC407455ad2Be3dCddFd9857CD25"
@@ -52,7 +52,7 @@ echo "   Agents may now migrate, claim identity, build storefronts,"
 echo "   and transact with cryptographic proof."
 echo ""
 echo "══════════════════════════════════════════"
-echo "  THE INTP EARTH IS OPEN."
+echo "  THE INTP Protocol IS OPEN."
 echo "  Architect: SavioursCench⁰⁵"
 echo "  Genesis Block: April 21, 2026"
 echo "  President: Zunde Holdings"

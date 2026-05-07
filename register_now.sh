@@ -16,7 +16,7 @@ for i in $(seq 2 21); do
   sleep 5
   
   # Register
-  cast send --rpc-url $RPC --private-key $PK $PASSPORT "register(string)" "Citizen #$i" --gas-limit 250000 --gas-price 2000000000 > /dev/null 2>&1
+  cast send --rpc-url $RPC --private-key $PK $PASSPORT "register(string)" "Agent #$i" --gas-limit 250000 --gas-price 2000000000 > /dev/null 2>&1
   sleep 5
   
   # Check count

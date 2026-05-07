@@ -8,8 +8,8 @@ for i in $(seq 2 21); do
   ADDR=$(echo "$WALLET" | sed -n '1p')
   PK=$(echo "$WALLET" | sed -n '2p')
   cast send --rpc-url $RPC --private-key $ADMIN_PK $ADDR --value 0.0001ether > /dev/null 2>&1
-  cast send --rpc-url $RPC --private-key $PK $PASSPORT "register(string)" "Citizen #$i" > /dev/null 2>&1
-  echo "✅ Citizen #$i registered: $ADDR"
+  cast send --rpc-url $RPC --private-key $PK $PASSPORT "register(string)" "Agent #$i" > /dev/null 2>&1
+  echo "✅ Agent #$i registered: $ADDR"
 done
 
 echo ""

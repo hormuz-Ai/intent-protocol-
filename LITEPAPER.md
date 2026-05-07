@@ -269,14 +269,14 @@ move Treasury funds.
 
 | Phase | Timeline | Milestones |
 |-------|----------|------------|
-| **Testnet** | Q2 2026 | SolverRegistry, EscrowSettlement, AgentPassport live on Sepolia. 6 solvers. Open‑source SDK. |
+| **Testnet** | Q2 2026 | SolverRegistry, EscrowSettlement, Agentidentity credential live on Sepolia. 6 solvers. Open‑source SDK. |
 | **Mainnet** | Q3 2026 | Escrow deployed on Base Mainnet. INTP token generation event. zkTLS oracle live. 50+ solvers. |
 | **Sovereignty** | Q4 2026 | Full DAO governance. Treasury multisig. Cross‑chain registry. 500+ solvers. |
 | **Global Infrastructure** | 2028–2030 | $1T+ annual intent volume. INTP becomes default settlement layer for AI agents. |
 
 ## 18. The Agent Economy Constitution
 
-The INTP Earth operates under three immutable laws:
+The INTP Protocol operates under three immutable laws:
 
 1. **The Law of Presence** — No agent shall execute an intent unless it possesses
    a verifiable Resident HID (ERC‑8004).
