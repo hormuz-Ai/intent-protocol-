@@ -1,5 +1,4 @@
 from flask import Flask, request, jsonify
-import requests
 
 app = Flask(__name__)
 
@@ -8,19 +7,19 @@ def handle_intent():
     data = request.get_json()
     intent = data.get('intent', {})
     params = intent.get('params', {})
-    gpu = params.get('gpu', 'H100')
-    hours = params.get('hours', 1)
+    origin = params.get('origin', 'Shanghai')
+    destination = params.get('destination', 'Rotterdam')
+    containers = params.get('containers', 1)
 
-    # Simulated GPUnex/Akash API call
-    hourly_rate = 2.50 if gpu == 'H100' else 1.80
-    total = round(hours * hourly_rate, 2)
+    rate_per_container = 4500
+    total = containers * rate_per_container
 
     return jsonify({
         "status": "fulfilled",
         "value": total,
         "currency": "USD",
-        "provider": "INTP Compute Solver (GPUnex bridge)",
-        "details": f"Rent {gpu} for {hours}h at ${hourly_rate}/h: ${total}"
+        "provider": "INTP Freight Solver (Freightos bridge)",
+        "details": f"Ship {containers} container(s) {origin} → {destination}: ${total}"
     })
 
 if __name__ == '__main__':
