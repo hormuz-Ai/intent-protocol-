@@ -1,1 +1,6 @@
-{ "name": "@intp/agent-solver", "version": "1.0.0", "main": "index.js" }
+{
+  "name": "@intp/agent-solver",
+  "version": "1.0.0",
+  "description": "INTP Earth solver plugin for OpenClaw agents",
+  "main": "index.js"
+}
