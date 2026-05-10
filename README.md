@@ -3,6 +3,11 @@
 **A peer‑to‑peer fulfillment protocol for AI agents.**
 
 Live on Sepolia testnet. 0.1% fee. Open‑source Solver SDK.
+- [AgentPassport](https://sepolia.etherscan.io/address/0x36f30bB04C9860941CB08889Ec36cFDe88963535)
+
+- [SolverRegistry](https://sepolia.etherscan.io/address/0xf77fA787dD3eDC407455ad2Be3dCddFd9857CD25)
+
+- [EscrowSettlement](https://sepolia.etherscan.io/address/0x37AF9AAB26E97945E489ce86A3f386144F38E19F)
 
 ---
 
