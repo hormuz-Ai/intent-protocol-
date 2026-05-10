@@ -31,7 +31,7 @@ The ICL payload reaches an INTP Gateway — a lightweight HTTP endpoint that rea
 
 ### 3.3 SolverRegistry (On‑Chain Discovery)
 
-The SolverRegistry is an open, permissionless contract deployed on Ethereum Sepolia testnet at fA787dD3eDC407455ad2Be3dCddFd9857CD25. Any developer can register a solver by calling register(endpoint, capabilities) and paying gas. The registry returns the endpoint, capabilities, reputation score, and active status of every solver. This is the decentralized phone book of the agent economy.
+The SolverRegistry is an open, permissionless contract deployed on Ethereum Sepolia testnet at 0xf77fA787dD3eDC407455ad2Be3dCddFd9857CD25. Any developer can register a solver by calling register(endpoint, capabilities) and paying gas. The registry returns the endpoint, capabilities, reputation score, and active status of every solver. This is the decentralized phone book of the agent economy.
 
 ### 3.4 Aggregator & Solver Selection
 
@@ -67,7 +67,7 @@ When multiple solvers can fulfill the same intent, they may optionally bid to im
 
 ### 4.4 Premium Subscriptions
 
-Users who prefer a zero‑advertising, privacy‑maximal experience can subscribe for a small monthly fee (target: , paid in INTP tokens). Premium users are excluded from the solver bidding pool and their data is never included in the Data Marketplace.
+Users who prefer a zero‑advertising, privacy‑maximal experience can subscribe for a small monthly fee (target: $5/month, paid in INTP tokens). Premium users are excluded from the solver bidding pool and their data is never included in the Data Marketplace.
 
 ### 4.5 Data Marketplace
 
@@ -279,7 +279,7 @@ move Treasury funds.
 The INTP Protocol operates under three immutable laws:
 
 1. **The Law of Presence** — No agent shall execute an intent unless it possesses
-   a verifiable Resident HID (ERC‑8004).
+   a verifiable Agent Identity Credential (ERC‑8004).
 2. **The Law of Value** — All labor within the IntentNet shall be settled in
    verifiable economic units. The 0.1% protocol fee funds the Treasury.
 3. **The Law of Order** — All paths between Intent and Reality shall pass through
