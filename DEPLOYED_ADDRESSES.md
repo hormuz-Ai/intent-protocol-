@@ -17,8 +17,8 @@
 
 | Contract | Address | Purpose |
 |---|---|---|
-| **INTP Treasury Safe** | `[Deploying tonight — 10 May 2026]` | 3‑of‑5 multisig for protocol fees |
-| **EscrowSettlement** | `[Deploying tonight — 10 May 2026]` | Mainnet escrow, fee split, zkTLS verification |
+| **INTP Treasury Safe** | `0xfA58EB021cfFeF6D7aD0DeD94C512acC33f07DE5` | 3‑of‑5 multisig for protocol fees |
+| **EscrowSettlement** | `0xfA58EB021cfFeF6D7aD0DeD94C512acC33f07DE5` | Mainnet escrow, fee split, zkTLS verification |
 
 ---
 
