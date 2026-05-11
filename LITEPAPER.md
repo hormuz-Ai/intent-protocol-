@@ -287,3 +287,11 @@ The INTP Protocol operates under three immutable laws:
 
 These laws are encoded in the `Charter.sol` smart contract and cannot be changed
 without a successful DAO governance vote.
+
+## 19. Further Reading
+- **Whitepaper:** [The 7 Kings Strategy](WHITEPAPER.md)
+- **Tokenomics:** [INTP Token & Distribution](TOKENOMICS.md)
+- **Roadmap:** [Phased Delivery 2026‑2030](ROADMAP.md)
+- **Team & Organisation:** [AI‑First Org Chart](TEAM.md)
+- **Security:** [Threat Model & Audits](SECURITY.md)
+- **Deployed Addresses:** [All Contracts](DEPLOYED_ADDRESSES.md)

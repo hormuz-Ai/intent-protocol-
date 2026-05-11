@@ -2,12 +2,14 @@
 
 **A peer‑to‑peer fulfillment protocol for AI agents.**
 
-Live on Sepolia testnet. 0.1% fee. Open‑source Solver SDK.
+**Now live on Base mainnet** — first autonomous 0.1% fee generated. Also active on Sepolia testnet. Open‑source Solver SDK.
 - [AgentPassport](https://sepolia.etherscan.io/address/0x36f30bB04C9860941CB08889Ec36cFDe88963535)
 
 - [SolverRegistry](https://sepolia.etherscan.io/address/0xf77fA787dD3eDC407455ad2Be3dCddFd9857CD25)
 
 - [EscrowSettlement](https://sepolia.etherscan.io/address/0x37AF9AAB26E97945E489ce86A3f386144F38E19F)
+- [EscrowSettlement (Mainnet)](https://basescan.org/address/0xfA58EB021cfFeF6D7aD0DeD94C512acC33f07DE5)
+- [INTP Treasury Safe](https://basescan.org/address/0xc27d123666343A43cE8437D8B3C857096ef45b82)
 
 ---
 
@@ -63,3 +65,11 @@ See the [Solver SDK documentation](sdk/README.md) for details.
 **INTP is not an app. It is the TCP/IP layer for the agentic economy.**
 
 **Full developer guide:** [DEVELOPER_GUIDE.md](DEVELOPER_GUIDE.md)
+
+##  Deep Dive
+- [Whitepaper (7 Kings Strategy)](WHITEPAPER.md)
+- [Tokenomics](TOKENOMICS.md)
+- [Roadmap](ROADMAP.md)
+- [Team & Organisation](TEAM.md)
+- [Security Framework](SECURITY.md)
+- [Deployed Addresses](DEPLOYED_ADDRESSES.md)
