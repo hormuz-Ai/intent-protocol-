@@ -50,16 +50,15 @@ contract EscrowSettlement {
     }
 
     function verifyProof(bytes32 intentId, bytes32 proofHash) external {
-    Escrow storage e = escrows[intentId];
-    require(e.status == Status.Pending, "Not pending");
-    require(block.timestamp <= e.deadline, "Expired");
-    require(msg.sender == e.solver, "Only solver can verify");
-    e.status = Status.Fulfilled;
-    e.proofHash = proofHash;
-    (bool sent, ) = e.solver.call{value: e.lockedAmount}("");
-    require(sent, "Solver pay failed");
-    emit Fulfilled(intentId, proofHash);
-}
+        Escrow storage e = escrows[intentId];
+        require(e.status == Status.Pending, "Not pending");
+        require(block.timestamp <= e.deadline, "Expired");
+        e.status = Status.Fulfilled;
+        e.proofHash = proofHash;
+        (bool sent, ) = e.solver.call{value: e.lockedAmount}("");
+        require(sent, "Solver pay failed");
+        emit Fulfilled(intentId, proofHash);
+    }
 
     function slash(bytes32 intentId) external {
         Escrow storage e = escrows[intentId];
@@ -72,12 +71,11 @@ contract EscrowSettlement {
     }
 
     function refund(bytes32 intentId) external {
-    Escrow storage e = escrows[intentId];
-    require(e.status == Status.Pending, "Not pending");
-    require(block.timestamp > e.deadline, "Not expired yet");
-    require(msg.sender == e.user, "Only user can refund");
-    e.status = Status.Refunded;
-    (bool sent, ) = e.user.call{value: e.lockedAmount}("");
-    require(sent, "Refund failed");
-    emit Refunded(intentId, e.user);
+        Escrow storage e = escrows[intentId];
+        require(e.status == Status.Pending, "Not pending");
+        e.status = Status.Refunded;
+        (bool sent, ) = e.user.call{value: e.lockedAmount}("");
+        require(sent, "Refund failed");
+        emit Refunded(intentId, e.user);
+    }
 }
