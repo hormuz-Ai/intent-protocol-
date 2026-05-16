@@ -1,1 +1,6 @@
-{"rewrites":[{"source":"/a2a","destination":"/api/index"}]}
+{
+  "rewrites": [
+    {"source": "/a2a", "destination": "/api/index"},
+    {"source": "/health", "destination": "/api/index"}
+  ]
+}
