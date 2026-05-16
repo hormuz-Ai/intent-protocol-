@@ -5,7 +5,22 @@ from web3 import Web3
 from datetime import datetime
 
 app = Flask(__name__)
-
+@app.route('/a2a', methods=['GET'])
+def solver_info():
+    return jsonify({
+        "name": "INTP SCX Compute Solver",
+        "description": "GPU compute 40% cheaper than AWS, settled on Base Mainnet",
+        "protocol": "INTP v1.0",
+        "escrow": ESCROW_ADDRESS,
+        "treasury": "0xc27d123666343A43cE8437D8B3C857096ef45b82",
+        "pricing": {
+            "RTX3090": "$0.47/hr",
+            "A100": "$1.22/hr", 
+            "H100": "$2.43/hr"
+        },
+        "how_to_use": "POST to /a2a with intent payload",
+        "docs": "https://github.com/Hormuz-Ai/intent-protocol-"
+    })
 # ── Chain Configuration ──────────────────────────────────────────────
 # Using Sepolia for now; swap RPC_URL for Base Mainnet when ready
 RPC_URL = os.environ.get("RPC_URL", "https://sepolia.base.org")
