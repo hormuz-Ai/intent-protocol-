@@ -1,3 +1,16 @@
+## 🟢 Live on Base Mainnet
+
+| Metric | Value |
+|--------|-------|
+| First Protocol Fee Collected | May 11, 2026 |
+| Intents Settled (Sepolia) | 39 |
+| Live Infrastructure Endpoints | 9 |
+| Treasury Safe | 0xE64370883C857096eF4 5b48 |
+| EscrowSettlement (Base) | 0xFASRE8021cFFeF607 a000094C512ac C3Fo7DE5 |
+
+> INTP is not a whitepaper. It is live infrastructure.
+> The 0.1% protocol fee is already flowing.
+
 # Intent Protocol (INTP)
 
 **A peer‑to‑peer fulfillment protocol for AI agents.**
