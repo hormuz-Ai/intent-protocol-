@@ -5,7 +5,7 @@
 | First Protocol Fee Collected | May 11, 2026 |
 | Intents Settled (Sepolia) | 39 |
 | Live Infrastructure Endpoints | 9 |
-| EscrowSettlement (Base) | 0xfA58EB021cfFeF6D7aD0DeD94C512acC33f07DE5 |
+| EscrowSettlement (Base) | 0xc9F455fAD53311D35F9965b90Ba6E892E3225f24 |
 | Treasury Safe (Base) | 0xc27d123666343A43cE8437D8B3C857096ef45b82 |
 | AgentPassport (Sepolia) | 0x36f30bB04C9860941CB08889Ec36cFDe88963535 |
 | SolverRegistry (Sepolia) | 0xf77fA787dD3eDC407455ad2Be3dCddFd9857CD25 |
@@ -24,7 +24,7 @@
 - [SolverRegistry](https://sepolia.etherscan.io/address/0xf77fA787dD3eDC407455ad2Be3dCddFd9857CD25)
 
 - [EscrowSettlement](https://sepolia.etherscan.io/address/0x37AF9AAB26E97945E489ce86A3f386144F38E19F)
-- [EscrowSettlement (Mainnet)](https://basescan.org/address/0xfA58EB021cfFeF6D7aD0DeD94C512acC33f07DE5)
+- [EscrowSettlement (Mainnet)](https://basescan.org/address/0xc9F455fAD53311D35F9965b90Ba6E892E3225f24)
 - [INTP Treasury Safe](https://basescan.org/address/0xc27d123666343A43cE8437D8B3C857096ef45b82)
 
 ---
