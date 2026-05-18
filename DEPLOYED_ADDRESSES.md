@@ -17,7 +17,8 @@
 
 | Contract | Address | Purpose |
 |---|---|---|
-| **INTP Treasury Safe** | `0xc27d123666343A43cE8437D8B3C857096ef45b82` | 3‑of‑5 multisig for protocol fees |
+| **INTP Treasury Safe (3-of-5 ACTIVE)** | `0x8d5c286837df980CfA199A2aCE7572DF48f40BB1` | 3-of-5 multisig for protocol fees |
+| **INTP Treasury Safe (deprecated)** | `0xc27d123666343A43cE8437D8B3C857096ef45b82` | Replaced — balance transferred |
 | **EscrowSettlement** | `0xc9F455fAD5331D35F9965b90Ba6E892E3225f24` | Mainnet escrow, fee split, zkTLS verification |
 
 ---
