@@ -19,19 +19,22 @@ def a2a():
 
 @app.route('/api/generate-proof', methods=['POST'])
 def generate_proof():
-    # Generate a deterministic cryptographic commitment based on
-    # your real GitHub data (already proven via zkTLS earlier).
-    # This will be accepted by your escrow contract's verifyProof().
-    github_data = {
-        "login": "hormuz-Ai",
-        "id": 275776198,
-        "location": "Vryheid, South Africa",
-        "bio": "Building open infrastructure for 400k+ AI agents"
-    }
-    preimage = json.dumps(github_data, sort_keys=True)
-    commitment = "0x" + hashlib.sha256(preimage.encode()).hexdigest()
-    return jsonify({
-        "status": "success",
-        "commitment": commitment,
-        "preimage": preimage
-    })
+    data = request.get_json()
+    url = data.get('url')
+    condition = data.get('condition', '')
+    if not url:
+        return jsonify({'status': 'error', 'message': 'url required'}), 400
+    try:
+        import requests as req
+        response = req.get(url, timeout=10)
+        payload = response.text[:500]
+        preimage = json.dumps({'url': url, 'condition': condition, 'response': payload}, sort_keys=True)
+        commitment = '0x' + hashlib.sha256(preimage.encode()).hexdigest()
+        return jsonify({'status': 'success', 'url_proven': url, 'commitment': commitment, 'preimage': preimage})
+    except Exception as e:
+        return jsonify({'status': 'error', 'message': str(e)}), 500
+
+@app.route('/api/receipts', methods=['GET'])
+def get_receipts():
+    intent_id = request.args.get('intent_id')
+    return jsonify({'status': 'ok', 'message': 'Check basescan.org/address/0xc9F455fAD53311D35F9965b90Ba6E892E3225f24', 'intent_id': intent_id})
