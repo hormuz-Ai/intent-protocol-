@@ -46,3 +46,13 @@
 | Gap 2 - AgentReferral | CLOSED | 0x135F7d80887064298CD0d65e4218b2c9d2d32e30 |
 | Gap 3 - FeeSplitter | CLOSED | Wired into worker_final.js |
 | Gap 4 - BilateralTollgate | DEFERRED | Needs Safe multisig |
+
+## Gap Closure Record — June 2026
+
+| Gap | Status | Evidence |
+|-----|--------|----------|
+| Gap 1 - zkTLS Oracle | CLOSED | 0x6d1410fa3a8dbc26984041669e7de4ad6f9c017b55cd2e79d8e3e942fbf5cbb8 |
+| Gap 2 - AgentReferral | CLOSED | 0x135F7d80887064298CD0d65e4218b2c9d2d32e30 |
+| Gap 3 - FeeSplitter | CLOSED | Wired into worker_final.js |
+| Gap 4 - BilateralTollgate | DEFERRED | Needs Safe multisig |
+| Proof Endpoint | LIVE | https://intent-protocol-xi.vercel.app/api/generate-proof |
