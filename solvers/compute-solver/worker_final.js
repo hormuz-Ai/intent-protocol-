@@ -8,7 +8,6 @@ const TOPIC = "0xe3ad398758b9cbdf4196c5d060a1aebae967b4f9115c7394e937cbb46f44958
 const MY_ADDR = wallet.address.toLowerCase();
 const adapterIface = new ethers.Interface([{name:"submitVerifiedWork",type:"function",inputs:[{name:"intentId",type:"bytes32"},{name:"solver",type:"address"},{name:"proof",type:"tuple",components:[{name:"claimInfo",type:"tuple",components:[{name:"provider",type:"string"},{name:"parameters",type:"string"},{name:"context",type:"string"}]},{name:"signedClaim",type:"tuple",components:[{name:"claim",type:"tuple",components:[{name:"identifier",type:"bytes32"},{name:"owner",type:"address"},{name:"timestampS",type:"uint32"},{name:"epoch",type:"uint32"}]},{name:"signatures",type:"bytes[]"}]}]}]}]);
 const processed = new Set();
-
 async function handleIntent(escrowId) {
     if (processed.has(escrowId)) return;
     processed.add(escrowId);
@@ -24,7 +23,6 @@ async function handleIntent(escrowId) {
         console.log("https://basescan.org/tx/"+tx.hash);
     } catch(e) { console.error("Error:", e.shortMessage||e.message); }
 }
-
 (async () => {
     console.log("INTP Worker listening...");
     console.log("Solver:", wallet.address);
