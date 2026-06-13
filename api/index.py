@@ -38,3 +38,11 @@ def generate_proof():
 def get_receipts():
     intent_id = request.args.get('intent_id')
     return jsonify({'status': 'ok', 'message': 'Check basescan.org/address/0xc9F455fAD53311D35F9965b90Ba6E892E3225f24', 'intent_id': intent_id})
+
+@app.route('/api/intent', methods=['GET'])
+def intent_health():
+    return jsonify({'status': 'ok', 'method': 'POST', 'description': 'Post an intent to INTP'})
+
+@app.route('/api/generate-proof', methods=['GET'])
+def proof_health():
+    return jsonify({'status': 'ok', 'method': 'POST', 'description': 'Generate zkTLS proof for any URL', 'example': {'url': 'https://api.coinbase.com/v2/prices/ETH-USD/spot', 'condition': 'price'}})
