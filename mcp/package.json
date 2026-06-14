@@ -1,0 +1,15 @@
+{
+  "name": "intp-settlement",
+  "version": "1.0.0",
+  "description": "zkTLS-verified intent settlement for AI agents on Base mainnet. Verify any URL cryptographically. Post intents. Earn bounties.",
+  "keywords": [
+    "settlement",
+    "zktls",
+    "escrow",
+    "verification",
+    "base",
+    "agents"
+  ],
+  "repository": "https://github.com/Hormuz-Ai/intent-protocol-",
+  "license": "MIT"
+}
